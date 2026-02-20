@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Surprise</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    transition: background 1s;
+}
+
+/* ===== หน้าแรก ===== */
+#firstPage {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://i.pinimg.com/1200x/3a/d4/9e/3ad49e5a075aed64cdd66088983c9408.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-shadow: 2px 2px 8px black;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin: 15px;
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+#noBtn {
+    background-color: #999;
+    color: white;
+    position: absolute;
+}
+
+/* ===== หน้าที่สอง ===== */
+#secondPage {
+    display: none;
+    min-height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    position: relative;
+}
+
+img {
+    width: 400px;
+    max-width: 90%;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* หัวใจลอย */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* พลุ */
+.firework {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: yellow;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    to {
+        transform: scale(8);
+        opacity: 0;
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="firstPage">
+    <h1>วันนี้วันเกิดใครน้าาาาาาาาาาา <br>อ่ะๆๆๆ กดดูซักปุ่ม</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="goToSecondPage()">แก่แล้ว 🎉</button>
+        <button id="noBtn">เกิดแล้ว ❌</button>
+    </div>
+</div>
+
+<div id="secondPage">
+    <h1>🎂 Happy Birthday Wine 🎉</h1>
+    <p>ขอให้มีความสุขมากมากๆนะที่รัก คิดถึงมากกกกก<br>
+    ขอให้ทุกอย่างเป็นไปด้วยดี และยิ้มได้ทุกวัน 💖</p>
+    <img src="https://i.pinimg.com/736x/a7/91/c2/a791c2df5fd295b6cfd589c0fa3d2e4b.jpg">
+</div>
+
+<!-- เพลง -->
+<audio id="birthdayMusic" 
+src="https://rr4---sn-5np5po4v-c33zl.googlevideo.com/videoplayback?expire=1771590714&ei=2v-Xab_TMYT5sfIPx4H_iAs&ip=89.249.195.84&id=o-AOKT63A_nsCmcj-yYpW8-W9Q9BBS8UcvG1wOVgoZ8BF6&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&rms=au%2Cau&bui=AVNa5-zYJTsyGpUdTtBNQdgB5KvxoYrZjoZOOMk2ntAxUhwflHiOEkQFwX1KFdhusc8XtIkzKvrlNZbi&spc=6dlaFFHvUbzP&vprv=1&svpuc=1&mime=audio%2Fwebm&rqh=1&gir=yes&clen=590896&dur=30.061&lmt=1742069793096833&keepalive=yes&fexp=51552689,51565115,51565682,51580968&c=ANDROID_VR&txp=5432534&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cbui%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Crqh%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJEij0EwRQIgNTe1QCVZFK1SpO_R9S4fMAiTs0UqgmccpC6ZL4skJPICIQCK9wcROvEIlQcrJtkN6WV3U4Gmj6KzYer_k99S9ELkmQ%3D%3D&redirect_counter=1&rm=sn-2ims76&rrc=104&req_id=5fc9e6d1390ba3ee&cms_redirect=yes&cps=29&ipbypass=yes&met=1771569142,&mh=It&mip=223.24.132.39&mm=31&mn=sn-5np5po4v-c33zl&ms=au&mt=1771568727&mv=m&mvi=4&pl=24&lsparams=cps,ipbypass,met,mh,mip,mm,mn,ms,mv,mvi,pl,rms&lsig=APaTxxMwRAIgeXF2-Y0CS9hTaYPUSz2LYoq3CxgMsIO1w6WRWeuUXPUCIAgzdtrDxett5_vwtcJHgUdN7QRkv0xhbLJwrESGFj3_">
+</audio>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const music = document.getElementById("birthdayMusic");
+
+noBtn.addEventListener("mouseover", function() {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+function goToSecondPage() {
+    document.getElementById("firstPage").style.display = "none";
+    document.getElementById("secondPage").style.display = "block";
+
+    music.play();
+    createConfetti();
+    launchFireworks();
+    startHearts();
+}
+
+/* Confetti */
+function createConfetti() {
+    for (let i = 0; i < 120; i++) {
+        let confetti = document.createElement("div");
+        confetti.style.position = "absolute";
+        confetti.style.width = "10px";
+        confetti.style.height = "10px";
+        confetti.style.background = "hsl(" + Math.random() * 360 + ",100%,50%)";
+        confetti.style.left = Math.random() * window.innerWidth + "px";
+        confetti.style.top = "-10px";
+        confetti.style.animation = "fall 3s linear forwards";
+        document.body.appendChild(confetti);
+    }
+}
+
+/* พลุกลางจอ */
+function launchFireworks() {
+    for (let i = 0; i < 20; i++) {
+        let firework = document.createElement("div");
+        firework.className = "firework";
+        firework.style.left = (window.innerWidth/2) + "px";
+        firework.style.top = (window.innerHeight/2) + "px";
+        firework.style.background = "hsl(" + Math.random() * 360 + ",100%,50%)";
+        document.body.appendChild(firework);
+    }
+
+}
+
+/* หัวใจลอย */
+function startHearts() {
+    setInterval(() => {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.bottom = "0px";
+        document.body.appendChild(heart);
+    }, 500);
+}
+</script>
+
+</body>
+</html>
